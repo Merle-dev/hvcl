@@ -31,6 +31,8 @@
           ];
 
           buildInputs = with pkgs; [
+            cargo
+            rustc
             gtk4
             gtk4-layer-shell
             glib
