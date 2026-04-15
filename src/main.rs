@@ -170,7 +170,7 @@ fn main() -> glib::ExitCode {
 
 fn key_event(key: Key, _: ModifierType, state: Rc<RefCell<AppState>>) -> glib::Propagation {
     let mut state = state.borrow_mut();
-    match key {
+    match dbg!(key) {
         Key::Escape => std::process::exit(0),
         k if k
             .to_unicode()
@@ -179,6 +179,10 @@ fn key_event(key: Key, _: ModifierType, state: Rc<RefCell<AppState>>) -> glib::P
             let ch = k.to_unicode().unwrap();
 
             state.expr.push(ch);
+            state.result = expr_solver::eval(&state.expr).ok();
+        }
+        Key::asciicircum | Key::dead_circumflex => {
+            state.expr.push('^');
             state.result = expr_solver::eval(&state.expr).ok();
         }
         Key::BackSpace | Key::Delete => {
