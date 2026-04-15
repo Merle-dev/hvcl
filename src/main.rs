@@ -23,7 +23,7 @@ struct Inputs {
     title: String,
     #[arg(long, short, default_value_t = String::new())]
     prompt: String,
-    #[arg(long, short = 'W', default_value_t = 350)]
+    #[arg(long, short = 'W', default_value_t = 450)]
     width: i32,
     #[arg(long, short = 'H', default_value_t = 100)]
     height: i32,
@@ -57,6 +57,7 @@ fn provider() -> CssProvider {
             label {{
                 font-size: {}px;
                 margin: 10px;
+                padding-left: 32px;
             }}
             .expr {{
                 color: {};

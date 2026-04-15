@@ -26,6 +26,20 @@
           # then replace it with the actual hash Nix provides.
           cargoSha256 = "sha256-ZSQD8ou9HbKow5gRcYrvWZ2pdsrrJnDopNQU7I7JAMY";
           cargoHash = "sha256-ZSQD8ou9HbKow5gRcYrvWZ2pdsrrJnDopNQU7I7JAMY";
+          nativeBuildInputs = with pkgs; [
+            pkg-config
+          ];
+
+          buildInputs = with pkgs; [
+            gtk4
+            gtk4-layer-shell
+            glib
+            gdk-pixbuf
+            pango
+            cairo
+            graphene
+            libadwaita
+          ];
         };
 
         # This lets you run 'nix develop' to get a dev environment
